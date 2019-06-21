@@ -26,7 +26,7 @@ parser = optparse.OptionParser(version='%prog version 1.0 March/01/2016', descri
 parser.add_option('-T', '--tumor_pileup', help='TUMOR PILEUP FILE [mandatory field]', type='string', action='store')
 parser.add_option('-N', '--normal_pileup', help='NORMAL PILEUP FILE [mandatory field]', type='string', action='store')
 parser.add_option('-D', '--conpair_dir', help='CONPAIR DIR [default: $CONPAIR_DIR]', action='store')
-parser.add_option('-M', '--markers', help='MARKER FILE [default: markers for GRCh37 from $CONPAIR_DIR/data/markers/ ]', type='string', action='store')
+parser.add_option('-M', '--markers', help='MARKER FILE [default: markers for GRCh38 from $CONPAIR_DIR/data/markers/ ]', type='string', action='store')
 parser.add_option('-O', '--outfile', help='TXT OUTPUT FILE [default: stdout]', default="-", type='string', action='store')
 parser.add_option('-G', '--grid', help='GRID INTERVAL [default: 0.01]', type='float', default=0.01, action='store')
 parser.add_option('-Q', '--min_mapping_quality', help='MIN MAPPING QUALITY [default: 10]', default=10, type='int', action='store')
@@ -58,7 +58,7 @@ if not os.path.exists(opts.normal_pileup):
 if opts.markers:
     MARKER_FILE = opts.markers
 else:
-    MARKER_FILE = os.path.join(CONPAIR_DIR, 'data', 'markers', 'GRCh37.autosomes.phase3_shapeit2_mvncall_integrated.20130502.SNV.genotype.sselect_v4_MAF_0.4_LD_0.8.txt')
+    MARKER_FILE = os.path.join(CONPAIR_DIR, 'data', 'markers', 'GRCh38.autosomes.phase3_shapeit2_mvncall_integrated.20130502.SNV.genotype.sselect_v4_MAF_0.4_LD_0.8.liftover.txt')
 
 if not os.path.exists(MARKER_FILE):
     print('ERROR: Marker file {0} cannot be find.'.format(MARKER_FILE))
