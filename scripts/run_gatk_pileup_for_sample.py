@@ -22,8 +22,8 @@ parser = optparse.OptionParser(version='%prog version 1.0 21/March/2016', descri
 parser.add_option('-B', '--bam', help='BAMFILE [mandatory field]', action='store')
 parser.add_option('-O', '--outfile', help='OUTPUT FILE (PILEUP) [mandatory field]', type='string', action='store')
 parser.add_option('-D', '--conpair_dir', help='CONPAIR DIR [$CONPAIR_DIR by default]', action='store')
-parser.add_option('-R', '--reference', help='REFERENCE GENOME [GRCh37 by default]', action='store')
-parser.add_option('-M', '--markers', help='MARKER FILE [GRCh37-default]', action='store')
+parser.add_option('-R', '--reference', help='REFERENCE GENOME [GRCh38 by default]', action='store')
+parser.add_option('-M', '--markers', help='MARKER FILE [GRCh38-default]', action='store')
 parser.add_option('-G', '--gatk', help='GATK JAR [$GATK by default]', action='store')
 parser.add_option('-J', '--java', help='PATH to JAVA [java by default]', default='java', action='store')
 parser.add_option('-t', '--temp_dir_java', help='temporary directory to set -Djava.io.tmpdir', action='store')
@@ -58,7 +58,7 @@ if not os.path.exists(GATK):
 if opts.markers:
     MARKER_FILE = opts.markers
 else:
-    MARKER_FILE = os.path.join(CONPAIR_DIR, 'data', 'markers', 'GRCh37.autosomes.phase3_shapeit2_mvncall_integrated.20130502.SNV.genotype.sselect_v4_MAF_0.4_LD_0.8.bed')
+    MARKER_FILE = os.path.join(CONPAIR_DIR, 'data', 'markers', 'GRCh38.autosomes.phase3_shapeit2_mvncall_integrated.20130502.SNV.genotype.sselect_v4_MAF_0.4_LD_0.8.liftover.bed')
 
 if not os.path.exists(MARKER_FILE):
     print('ERROR: Marker file {0} cannot be find.'.format(MARKER_FILE))
